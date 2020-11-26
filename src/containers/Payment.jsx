@@ -6,13 +6,14 @@ import AppContext from '../context/AppContext';
 import { handleSumTotal } from '../utils/index';
 
 import '../styles/components/Payment.css';
+
 const Payment = () => {
   const { state, addNewOrder } = useContext(AppContext);
   const { cart, buyer } = state;
   const history = useHistory();
 
   const paypalOptions = {
-    clientId: '',
+    clientId: 'ATVuRn-otqRENiCQ31oB-weK8PkJk8BUX-fHR9Aq49EA_PXb8Rh3NcGLM9tiqvkaMVZR_q1EMWPE9F0e',
     intent: 'capture',
     currency: 'USD'
   };
@@ -23,7 +24,6 @@ const Payment = () => {
   };
 
   const handlePaymentSuccess = (data) => {
-    console.log(data);
     if (data.status === 'COMPLETED') {
       const newOrder = {
         buyer,
