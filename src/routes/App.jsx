@@ -15,6 +15,10 @@ import useInitialState from '../hooks/useInitialState';
 
 const App = () => {
   const initialState = useInitialState();
+  const isEmpty = Object.keys(initialState.state).length === 0;
+  if (isEmpty) {
+    return <h1>Cargando...</h1>
+  }
   return (
     <AppContext.Provider value={initialState}>
       <BrowserRouter>
